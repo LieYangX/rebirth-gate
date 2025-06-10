@@ -1,0 +1,10 @@
+// 解决 TypeScript 路径别名问题
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["src/**/*.js", "src/**/*.ts", "src/**/*.vue", "src/**/*.tsx", "src/**/*.json"],
+}
