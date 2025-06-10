@@ -11,7 +11,8 @@ const clickPack = (index) => {
   proxy.$vs.notify({
     title: '中奖啦！',
     text: giftpackData.data[index],
-    color: color
+    color: color,
+    position: 'top-center'
   })
 }
 
@@ -20,7 +21,8 @@ const handleNavClick = () => {
   proxy.$vs.notify({
     title: '施工中！！',
     text: '该功能正在施工中，敬请期待！别点要坏了！！！😞',
-    color: color
+    color: color,
+    position: 'top-right'
   })
 }
 
