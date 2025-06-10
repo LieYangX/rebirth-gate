@@ -20,7 +20,7 @@ const handleNavClick = () => {
   let color = `rgb(${getRandomInt(0, 255)},${getRandomInt(0, 255)},${getRandomInt(0, 255)})`
   proxy.$vs.notify({
     title: '施工中！！',
-    text: '该功能正在施工中，敬请期待！别点要坏了！！！😞',
+    text: '该功能正在施工中，敬请期待！别点要坏了！！！😞不行！！时空损坏哥给你送回来哈哈气死你！',
     color: color,
     position: 'top-right'
   })
