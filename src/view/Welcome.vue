@@ -9,8 +9,10 @@ const { proxy } = getCurrentInstance()
 
 const data = ref(welcomeData.data);
 
+let timeOut = null;
+
 onMounted(() => {
-    setTimeout(() => {
+    timeOut = setTimeout(() => {
         proxy.$vs.notify({
             title: '等你好久了',
             text: '既然你不点，那我就直接请你进来吧！',
@@ -22,6 +24,7 @@ onMounted(() => {
 });
 
 const openLoading = () => {
+    timeOut && clearTimeout(timeOut)
     activeLoading.value = true
     proxy.$vs.loading({
         type: 'sound',

@@ -1,7 +1,8 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, defineEmits } from 'vue'
 
 let activeItem = ref('0')
+const emit = defineEmits(['nav-click'])
 
 const handleNavClick = (index) => {
     activeItem.value = index
