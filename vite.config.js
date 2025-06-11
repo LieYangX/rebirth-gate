@@ -21,7 +21,7 @@ export default defineConfig({
   },
   // 服务器配置
   server: {
-    port: 2025,
+    port: 2525,
     host: '0.0.0.0'
   },
   build: {

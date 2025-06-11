@@ -11,14 +11,14 @@ const data = ref(welcomeData.data);
 
 onMounted(() => {
     setTimeout(() => {
-        router.replace('/home')
         proxy.$vs.notify({
             title: '等你好久了',
             text: '既然你不点，那我就直接请你进来吧！',
             color: 'success',
             position: 'top-center'
         })
-    }, 10000);
+        router.replace('/home')
+    }, 10000)
 });
 
 const openLoading = () => {
@@ -37,7 +37,7 @@ const openLoading = () => {
             position: 'top-center'
         })
         router.replace('/home')
-    }, 3000);
+    }, 3000)
 }
 
 

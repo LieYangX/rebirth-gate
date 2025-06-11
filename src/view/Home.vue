@@ -2,9 +2,11 @@
 import versionData from '@/data/Verion.json'
 import giftpackData from '@/data/GiftPack.json'
 import { ref, getCurrentInstance } from 'vue'
+import CustomNavbar from '@/components/CustomNavbar.vue'
+import { useRouter } from 'vue-router'
 
-let activeItem = ref('0')
 const { proxy } = getCurrentInstance()
+const router = useRouter()
 
 const clickPack = (index) => {
   let color = `rgb(${getRandomInt(0, 255)},${getRandomInt(0, 255)},${getRandomInt(0, 255)})`
@@ -16,7 +18,8 @@ const clickPack = (index) => {
   })
 }
 
-const handleNavClick = () => {
+const handleNavClick = (index) => {
+  console.log(index)
   let color = `rgb(${getRandomInt(0, 255)},${getRandomInt(0, 255)},${getRandomInt(0, 255)})`
   proxy.$vs.notify({
     title: '施工中！！',
@@ -24,6 +27,7 @@ const handleNavClick = () => {
     color: color,
     position: 'top-right'
   })
+  router.replace('/')
 }
 
 const getRandomInt = (min, max) => {
@@ -32,23 +36,7 @@ const getRandomInt = (min, max) => {
 </script>
 
 <template>
-  <vs-navbar class="nabarx" collaps v-model="activeItem">
-    <div slot="title">
-      <vs-navbar-title>
-        重生门
-      </vs-navbar-title>
-    </div>
-
-    <vs-navbar-item index="0" @click="handleNavClick()">
-      <a href="#">大礼包</a>
-    </vs-navbar-item>
-    <vs-navbar-item index="1" @click="handleNavClick()">
-      <a href="#">疯狂星期四</a>
-    </vs-navbar-item>
-    <vs-navbar-item index="2" @click="handleNavClick()">
-      <a href="#">该死的周一</a>
-    </vs-navbar-item>
-  </vs-navbar>
+  <CustomNavbar @nav-click="handleNavClick" />
 
   <div class="container">
     <vs-alert color="primary" title="请选择您的大礼包" active="true">
