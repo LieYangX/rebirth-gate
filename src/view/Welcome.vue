@@ -1,12 +1,27 @@
 <script setup>
-import { ref, getCurrentInstance } from 'vue'
+import { ref, getCurrentInstance, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
+import welcomeData from '@/data/Welcome.json'
 
 const router = useRouter()
 const activeLoading = ref(false);
 const { proxy } = getCurrentInstance()
 
-const openLoading = (type) => {
+const data = ref(welcomeData.data);
+
+onMounted(() => {
+    setTimeout(() => {
+        router.replace('/home')
+        proxy.$vs.notify({
+            title: '等你好久了',
+            text: '既然你不点，那我就直接请你进来吧！',
+            color: 'success',
+            position: 'top-center'
+        })
+    }, 10000);
+});
+
+const openLoading = () => {
     activeLoading.value = true
     proxy.$vs.loading({
         type: 'sound',
@@ -33,24 +48,18 @@ const openLoading = (type) => {
         <vs-card actionable class="cardx">
             <template #header>
                 <h3>
-                    欢迎来到重生门
+                    {{ data.title }}
                 </h3>
-                <span style="font-size: 12px; font-weight: bold;">Welcome to the Rebirth Gate.</span> <br>
-                <span style="font-size: 12px;">General Manager Chen</span>
+                <span style="font-size: 12px; font-weight: bold;">{{ data.titleDescription1 }}</span> <br>
+                <span style="font-size: 12px;">{{ data.titleDescription2 }}</span>
             </template>
             <template #media>
                 <img src="https://img-s.msn.cn/tenant/amp/entityid/BB1msBaG?w=0&h=0&q=60&m=6&f=jpg&u=t">
             </template>
             <div>
-                <span style="font-weight:900;">当我们在时光的裂缝中交出旧钥匙，重生门后等待的不仅是新的心跳，更是在对方的瞳孔里遇见第无数次初雪般纯净的相遇。</span> <br>
-                <span style="font-weight:600;">给我进去别瞅啦陈总啊！！！😇</span> <br>
-                <span style="font-weight:700;">When we hand over the old keys in the cracks of time, what awaits us
-                    behind
-                    the door
-                    of rebirth is not
-                    only a
-                    new heartbeat, but also a meeting as pure as the first snowfall seen countless times in each other's
-                    pupils.
+                <span style="font-weight:900;">{{ data.mainDescriptionZh }}</span> <br>
+                <span style="font-weight:600;">{{ data.mainTips }}</span> <br>
+                <span style="font-weight:700;">{{ data.mainDescriptiontUs }}
                 </span>
             </div>
             <template #footer>
