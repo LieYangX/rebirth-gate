@@ -79,6 +79,7 @@ const getRandomInt = (min, max) => {
 .bottom {
   position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
   text-align: center;
   padding: 5px;

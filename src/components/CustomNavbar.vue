@@ -1,5 +1,5 @@
 <script setup>
-import { ref, defineEmits } from 'vue'
+import { ref } from 'vue'
 
 let activeItem = ref('0')
 const emit = defineEmits(['nav-click'])
