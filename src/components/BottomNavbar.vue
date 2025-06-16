@@ -37,6 +37,7 @@ const handleNavClick = (index) => {
 
 <style scoped>
 .navbar-list-icon {
+    line-height: 1;
     text-align: center;
 }
 
