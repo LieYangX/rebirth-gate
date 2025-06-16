@@ -27,7 +27,7 @@ const handleNavClick = (index) => {
     color: color,
     position: 'top-right'
   })
-  router.replace('/')
+  // router.replace('/')
 }
 
 const getRandomInt = (min, max) => {

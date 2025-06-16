@@ -13,21 +13,45 @@ const handleNavClick = (index) => {
 <template>
     <div class="custom-navbar">
         <div class="navbar-list">
-            <button :class="{ active: activeItem === '0' }" @click="handleNavClick('0')" type="button">大礼包</button>
-            <button :class="{ active: activeItem === '1' }" @click="handleNavClick('1')" type="button">疯狂星期四</button>
-            <button :class="{ active: activeItem === '2' }" @click="handleNavClick('2')" type="button">该死的周一</button>
+            <div @click="handleNavClick('0')">
+                <div class="navbar-list-icon">
+                    <vs-icon icon="volunteer_activism" size="small" :color="activeItem === '0' ? 'primary' : ''"></vs-icon>
+                </div>
+                <span class="navbar-list-title">混沌</span>
+            </div>
+            <div @click="handleNavClick('1')">
+                <div class="navbar-list-icon">
+                    <vs-icon icon="looks" size="small" :color="activeItem === '1' ? 'primary' : ''"></vs-icon>
+                </div>
+                <span class="navbar-list-title">时空</span>
+            </div>
+            <div @click="handleNavClick('2')">
+                <div class="navbar-list-icon">
+                    <vs-icon icon="people" size="small" :color="activeItem === '2' ? 'primary' : ''"></vs-icon>
+                </div>
+                <span class="navbar-list-title">双人成行</span>
+            </div>
         </div>
     </div>
 </template>
 
 <style scoped>
+.navbar-list-icon {
+    text-align: center;
+}
+
+.navbar-list-title {
+    font-size: 12px;
+}
+
 .custom-navbar {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background: #fff;
-    box-shadow: 0 -2px 8px 0 rgba(60, 60, 60, 0.05); /* 新增阴影 */
+    box-shadow: 0 -2px 8px 0 rgba(60, 60, 60, 0.05);
+    /* 新增阴影 */
     padding: 10px 20px;
     position: fixed;
     bottom: 0;
@@ -39,7 +63,7 @@ const handleNavClick = (index) => {
 .navbar-list {
     display: flex;
     gap: 20px;
-    margin-bottom: 15px;
+    max-width: 600px;
 }
 
 .navbar-list button {
@@ -68,7 +92,7 @@ const handleNavClick = (index) => {
 @media (max-width: 600px) {
     .custom-navbar {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         padding: 10px;
     }
 
@@ -76,11 +100,6 @@ const handleNavClick = (index) => {
         width: 100%;
         justify-content: space-around;
         gap: 0;
-    }
-
-    .navbar-title {
-        margin-bottom: 8px;
-        font-size: 18px;
     }
 }
 </style>
