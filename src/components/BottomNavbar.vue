@@ -67,29 +67,6 @@ const handleNavClick = (index) => {
     max-width: 600px;
 }
 
-.navbar-list button {
-    cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 5px;
-    border: none;
-    background: #fff;
-    color: #222;
-    font-size: 16px;
-    transition: background 0.5s, color 0.1s;
-    user-select: none;
-    outline: none;
-    -webkit-tap-highlight-color: transparent;
-    /* 移动端去除点击高亮 */
-}
-
-.navbar-list button.active,
-.navbar-list button:hover {
-    background: #e0e0e0;
-    /* 比 hover 稍深一点，过渡自然 */
-    color: #3f51b5;
-    transition: background 0.5s, color 0.1s;
-}
-
 @media (max-width: 600px) {
     .custom-navbar {
         flex-direction: column;
