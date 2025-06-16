@@ -1,8 +1,8 @@
 <script setup>
 import versionData from '@/data/Verion.json'
 import giftpackData from '@/data/GiftPack.json'
-import { ref, getCurrentInstance } from 'vue'
-import CustomNavbar from '@/components/CustomNavbar.vue'
+import { getCurrentInstance } from 'vue'
+import BottomNavbar from '@/components/BottomNavbar.vue'
 import { useRouter } from 'vue-router'
 
 const { proxy } = getCurrentInstance()
@@ -36,7 +36,7 @@ const getRandomInt = (min, max) => {
 </script>
 
 <template>
-  <CustomNavbar @nav-click="handleNavClick" />
+  <BottomNavbar @nav-click="handleNavClick" />
 
   <div class="container">
     <vs-alert color="primary" title="请选择您的大礼包" active="true">
@@ -78,7 +78,7 @@ const getRandomInt = (min, max) => {
 
 .bottom {
   position: fixed;
-  bottom: 0;
+  top: 0;
   left: 0;
   width: 100%;
   text-align: center;

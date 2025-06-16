@@ -12,7 +12,6 @@ const handleNavClick = (index) => {
 
 <template>
     <div class="custom-navbar">
-        <div class="navbar-title">重生门</div>
         <div class="navbar-list">
             <button :class="{ active: activeItem === '0' }" @click="handleNavClick('0')" type="button">大礼包</button>
             <button :class="{ active: activeItem === '1' }" @click="handleNavClick('1')" type="button">疯狂星期四</button>
@@ -28,23 +27,19 @@ const handleNavClick = (index) => {
     align-items: center;
     justify-content: space-between;
     background: #fff;
-    box-shadow: 0 2px 8px 0 rgba(60, 60, 60, 0.05); /* 新增阴影 */
+    box-shadow: 0 -2px 8px 0 rgba(60, 60, 60, 0.05); /* 新增阴影 */
     padding: 10px 20px;
     position: fixed;
-    top: 0;
+    bottom: 0;
     left: 0;
     z-index: 100;
     box-sizing: border-box;
 }
 
-.navbar-title {
-    font-weight: bold;
-    font-size: 20px;
-}
-
 .navbar-list {
     display: flex;
     gap: 20px;
+    margin-bottom: 15px;
 }
 
 .navbar-list button {
